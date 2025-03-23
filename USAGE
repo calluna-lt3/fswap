@@ -1,0 +1,41 @@
+USAGE:
+    fswap [OPTIONS...] { help | begin | end | info | revert | swap } [ARGUMENTS...]
+
+NOTES:
+
+    this tool was made 4fun, backup your things !
+
+    must be in FSWAP DIR for all commands that do not take it as an argument
+        (this might change in the future)
+
+
+COMMANDS
+
+    begin [SOURCE DIR] [FSWAP DIR]
+        creates .fswap file linking SOURCE_DIR and FSWAP DIR
+
+    end [FSWAP DIR] : NOT IMPLEMENTED
+        deletes .fswap file, and ALL swapped files
+
+    info [FSWAP DIR]
+        prints all swapped files
+
+    revert [FILES...]
+        reverts a swapped file to it's original state (e.g. file.fswap -> file)
+
+    swap [FILES...]
+        if they both exist, swaps a file from SOURCE DIR to FSWAP DIR, and saves the swapped file
+
+
+OPTIONS
+
+    -a, --all
+        CMDS: revert, swap
+        does COMMAND to all files in the fswap directory, recursively
+
+    -h, --help
+        print this help
+
+    -r, --recursive : NOT IMPLEMENTED
+        CMDS: revert, swap
+        does COMMAND to all files in the given directory (interprets files passed as arguments as directories)
