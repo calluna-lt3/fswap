@@ -1,5 +1,5 @@
 USAGE:
-    fswap [OPTIONS...] { help | begin | end | info | revert | swap } [ARGUMENTS...]
+    fswap { help | begin | end | info | revert | swap } [OPTIONS...] [ARGUMENTS...]
 
 NOTES:
 
@@ -12,30 +12,39 @@ NOTES:
 COMMANDS
 
     begin [SOURCE DIR] [FSWAP DIR]
-        creates .fswap file linking SOURCE_DIR and FSWAP DIR
+        Creates .fswap file linking SOURCE_DIR and FSWAP DIR.
 
-    end [FSWAP DIR] : NOT IMPLEMENTED
-        deletes .fswap file, and ALL swapped files
+    end [FSWAP DIR]
+        Deletes .fswap file, and ALL swapped files. Does not revert changes before doing so.
 
     info [FSWAP DIR]
-        prints all swapped files
+        Prints all swapped files.
 
     revert [FILES...]
-        reverts a swapped file to it's original state (e.g. file.fswap -> file)
+        Reverts a swapped file to it's original state (e.g. file.fswap -> file).
 
     swap [FILES...]
-        if they both exist, swaps a file from SOURCE DIR to FSWAP DIR, and saves the swapped file
+        If they both exist, swaps a file from SOURCE DIR to FSWAP DIR, and saves the swapped file.
 
 
 OPTIONS
 
-    -a, --all
-        CMDS: revert, swap
-        does COMMAND to all files in the fswap directory, recursively
+    -a, --all => { revert | swap }
+        Default: false
+        This option does COMMAND to all files in the fswap directory, recursively
 
     -h, --help
-        print this help
+        Default: false
+        This option prints a simplified help message.
 
-    -r, --recursive : NOT IMPLEMENTED
-        CMDS: revert, swap
-        does COMMAND to all files in the given directory (interprets files passed as arguments as directories)
+    -n, --noconfirm => { end }
+        Default: false
+        This option causes end to not ask the user for confirmation before deleting all fswap files.
+
+    -r, --recursive => { revert | swap }
+        Default: false
+        This option does COMMAND to all files in the given directory (interprets files passed as arguments as directories).
+
+    -s, --silent
+        Default: false
+        Suppresses output of this program.
