@@ -5,17 +5,18 @@ NOTES:
 
     this tool was made 4fun, backup your things !
 
-    must be in FSWAP DIR for all commands that do not take it as an argument
-        (this might change in the future)
-
+    FSWAP DIR is an optional argument, and defaults to the current working directory.
 
 COMMANDS
 
     begin [SOURCE DIR] [FSWAP DIR]
-        Creates .fswap file linking SOURCE_DIR and FSWAP DIR.
+        Creates .fswap file linking SOURCE DIR and FSWAP DIR.
 
     end [FSWAP DIR]
         Deletes .fswap file, and ALL swapped files. Does not revert changes before doing so.
+
+    help [COMMAND]
+        Prints information about COMMAND.
 
     info [FSWAP DIR]
         Prints all swapped files.
@@ -39,12 +40,12 @@ OPTIONS
 
     -n, --noconfirm => { end }
         Default: false
-        This option causes end to not ask the user for confirmation before deleting all fswap files.
+        This option causes fswap to not ask for confirmation before overwriting files.
 
     -r, --recursive => { revert | swap }
         Default: false
         This option does COMMAND to all files in the given directory (interprets files passed as arguments as directories).
 
-    -s, --silent
+    -v, --verbose
         Default: false
-        Suppresses output of this program.
+        This options causes fswap to print all changes this program makes to files.
