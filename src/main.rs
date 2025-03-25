@@ -110,9 +110,8 @@ fn confirm_cmd(description: &String) -> bool {
                     continue;
                 }
             }
-            Ok(n) => {
-                eprintln!("buf = {buf}\nn = {n}");
-                continue;
+            Ok(_) => {
+                return false;
             }
             Err(err) => {
                 eprintln!("ERROR: Couldn't read line: {err}");
